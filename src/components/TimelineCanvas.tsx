@@ -1,0 +1,118 @@
+import type {
+  DateSystem,
+  HistoricalEntity,
+  TimelineMilestone,
+} from "../types/timeline";
+import { TimelineAxis } from "./timeline/TimelineAxis";
+import { TimelineEmptyState } from "./timeline/TimelineEmptyState";
+import { TimelineMilestones } from "./timeline/TimelineMilestones";
+import { TimelineRows } from "./timeline/TimelineRows";
+import { TimelineTooltip } from "./timeline/TimelineTooltip";
+import { useTimelineCanvasController } from "./timeline/useTimelineCanvasController";
+
+interface TimelineCanvasProps {
+  entities: HistoricalEntity[];
+  milestones: TimelineMilestone[];
+  dateSystem: DateSystem;
+  zoomLevel: number;
+  selectedEntityId: string | null;
+  onSelectEntity: (entityId: string) => void;
+  onZoomChange: (value: number) => void;
+}
+
+export function TimelineCanvas({
+  entities,
+  milestones,
+  dateSystem,
+  zoomLevel,
+  selectedEntityId,
+  onSelectEntity,
+  onZoomChange,
+}: TimelineCanvasProps) {
+  const {
+    axisYears,
+    bounds,
+    containerRef,
+    handlePointerDown,
+    handlePointerMove,
+    handlePointerUp,
+    hideTooltip,
+    pixelsPerYear,
+    showTooltip,
+    showTooltipAt,
+    timelineWidth,
+    tooltip,
+  } = useTimelineCanvasController({
+    entities,
+    milestones,
+    zoomLevel,
+    selectedEntityId,
+    onZoomChange,
+  });
+
+  if (entities.length === 0) {
+    return <TimelineEmptyState />;
+  }
+
+  return (
+    <main
+      ref={containerRef}
+      className="timeline-canvas"
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onPointerCancel={handlePointerUp}
+    >
+      <div className="timeline-surface" style={{ width: timelineWidth }}>
+        <TimelineAxis
+          axisYears={axisYears}
+          boundsMinYear={bounds.minYear}
+          pixelsPerYear={pixelsPerYear}
+          timelineWidth={timelineWidth}
+          dateSystem={dateSystem}
+        />
+
+        <div className="timeline-body">
+          <div className="timeline-grid" style={{ width: timelineWidth }}>
+            {axisYears.map((year) => (
+              <span
+                key={year}
+                className="timeline-grid__line"
+                style={{ insetInlineStart: (year - bounds.minYear) * pixelsPerYear }}
+              />
+            ))}
+
+            <TimelineMilestones
+              milestones={milestones}
+              boundsMinYear={bounds.minYear}
+              pixelsPerYear={pixelsPerYear}
+              dateSystem={dateSystem}
+            />
+          </div>
+
+          <div className="timeline-rows">
+            <TimelineRows
+              entities={entities}
+              boundsMinYear={bounds.minYear}
+              pixelsPerYear={pixelsPerYear}
+              timelineWidth={timelineWidth}
+              selectedEntityId={selectedEntityId}
+              onSelectEntity={onSelectEntity}
+              onShowTooltip={showTooltip}
+              onHideTooltip={hideTooltip}
+              onFocusTooltip={(entity, event) =>
+                showTooltipAt(
+                  entity,
+                  event.currentTarget.getBoundingClientRect().left + 24,
+                  event.currentTarget.getBoundingClientRect().top,
+                )
+              }
+            />
+          </div>
+        </div>
+      </div>
+
+      {tooltip ? <TimelineTooltip tooltip={tooltip} dateSystem={dateSystem} /> : null}
+    </main>
+  );
+}
