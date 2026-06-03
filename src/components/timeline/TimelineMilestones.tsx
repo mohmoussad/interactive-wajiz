@@ -1,4 +1,4 @@
-import type { DateSystem, TimelineMilestone } from "../../types/timeline";
+import type { TimelineMilestone } from "../../types/timeline";
 import { milestoneClassMap } from "./timelineConfig";
 import { formatYear } from "./timelineDates";
 
@@ -6,14 +6,12 @@ interface TimelineMilestonesProps {
   milestones: TimelineMilestone[];
   boundsMinYear: number;
   pixelsPerYear: number;
-  dateSystem: DateSystem;
 }
 
 export function TimelineMilestones({
   milestones,
   boundsMinYear,
   pixelsPerYear,
-  dateSystem,
 }: TimelineMilestonesProps) {
   return (
     <>
@@ -31,7 +29,7 @@ export function TimelineMilestones({
           <div className="timeline-milestone__card">
             <strong>{milestone.title}</strong>
             <p>{milestone.description}</p>
-            <small>{formatYear(milestone.year, milestone.hijriYear, dateSystem, milestone.hijriEra)}</small>
+            <small>{formatYear(milestone.year, milestone.hijriYear, milestone.hijriEra)}</small>
           </div>
         </div>
       ))}

@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { historicalEntities, timelineMilestones } from "../data/historicalData";
-import type { DateSystem } from "../types/timeline";
 import { TimelineCanvas } from "./TimelineCanvas";
 import { Toolbox } from "./Toolbox";
 
 export function TimelineDashboard() {
-  const dateSystem: DateSystem = "both";
   const [zoomLevel, setZoomLevel] = useState(1.35);
   const [selectedEntityId, setSelectedEntityId] = useState<string | null>(
     historicalEntities[0]?.id ?? null,
@@ -40,7 +38,6 @@ export function TimelineDashboard() {
       <TimelineCanvas
         entities={historicalEntities}
         milestones={timelineMilestones}
-        dateSystem={dateSystem}
         zoomLevel={zoomLevel}
         selectedEntityId={selectedEntity?.id ?? null}
         onSelectEntity={(entityId) => setSelectedEntityId(entityId || null)}

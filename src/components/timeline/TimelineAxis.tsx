@@ -1,4 +1,3 @@
-import type { DateSystem } from "../../types/timeline";
 import { formatYear, gregorianYearToHijriYear } from "./timelineDates";
 
 interface TimelineAxisProps {
@@ -6,7 +5,6 @@ interface TimelineAxisProps {
   boundsMinYear: number;
   pixelsPerYear: number;
   timelineWidth: number;
-  dateSystem: DateSystem;
 }
 
 export function TimelineAxis({
@@ -14,7 +12,6 @@ export function TimelineAxis({
   boundsMinYear,
   pixelsPerYear,
   timelineWidth,
-  dateSystem,
 }: TimelineAxisProps) {
   return (
     <div className="timeline-axis" style={{ minHeight: 72 }}>
@@ -25,7 +22,7 @@ export function TimelineAxis({
             className="timeline-axis__tick"
             style={{ insetInlineStart: (year - boundsMinYear) * pixelsPerYear }}
           >
-            {formatYear(year, gregorianYearToHijriYear(year), dateSystem)}
+            {formatYear(year, gregorianYearToHijriYear(year))}
           </div>
         ))}
       </div>

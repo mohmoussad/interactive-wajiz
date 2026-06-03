@@ -1,8 +1,4 @@
-import type {
-  DateSystem,
-  HistoricalEntity,
-  TimelineMilestone,
-} from "../types/timeline";
+import type { HistoricalEntity, TimelineMilestone } from "../types/timeline";
 import { TimelineAxis } from "./timeline/TimelineAxis";
 import { TimelineEmptyState } from "./timeline/TimelineEmptyState";
 import { TimelineMilestones } from "./timeline/TimelineMilestones";
@@ -13,7 +9,6 @@ import { useTimelineCanvasController } from "./timeline/useTimelineCanvasControl
 interface TimelineCanvasProps {
   entities: HistoricalEntity[];
   milestones: TimelineMilestone[];
-  dateSystem: DateSystem;
   zoomLevel: number;
   selectedEntityId: string | null;
   onSelectEntity: (entityId: string) => void;
@@ -23,7 +18,6 @@ interface TimelineCanvasProps {
 export function TimelineCanvas({
   entities,
   milestones,
-  dateSystem,
   zoomLevel,
   selectedEntityId,
   onSelectEntity,
@@ -69,7 +63,6 @@ export function TimelineCanvas({
           boundsMinYear={bounds.minYear}
           pixelsPerYear={pixelsPerYear}
           timelineWidth={timelineWidth}
-          dateSystem={dateSystem}
         />
 
         <div className="timeline-body">
@@ -86,7 +79,6 @@ export function TimelineCanvas({
               milestones={milestones}
               boundsMinYear={bounds.minYear}
               pixelsPerYear={pixelsPerYear}
-              dateSystem={dateSystem}
             />
           </div>
 
@@ -112,7 +104,7 @@ export function TimelineCanvas({
         </div>
       </div>
 
-      {tooltip ? <TimelineTooltip tooltip={tooltip} dateSystem={dateSystem} /> : null}
+      {tooltip ? <TimelineTooltip tooltip={tooltip} /> : null}
     </main>
   );
 }

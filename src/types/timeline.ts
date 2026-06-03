@@ -1,5 +1,3 @@
-export type DateSystem = "gregorian" | "hijri" | "both";
-
 export type EntityType =
   | "caliphate"
   | "dynasty"

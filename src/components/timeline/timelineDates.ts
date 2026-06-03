@@ -1,5 +1,3 @@
-import type { DateSystem } from "../../types/timeline";
-
 export function gregorianYearToHijriYear(year: number): number {
   const formatter = new Intl.DateTimeFormat("en-u-ca-islamic", {
     year: "numeric",
@@ -17,19 +15,6 @@ export function formatHijriYear(year: number, era?: "AH" | "BH"): string {
   return era === "BH" ? `${year} ق.هـ` : `${year} هـ`;
 }
 
-export function formatYear(
-  year: number,
-  hijriYear: number,
-  dateSystem: DateSystem,
-  era?: "AH" | "BH",
-): string {
-  if (dateSystem === "gregorian") {
-    return `${year} م`;
-  }
-
-  if (dateSystem === "hijri") {
-    return formatHijriYear(hijriYear, era);
-  }
-
+export function formatYear(year: number, hijriYear: number, era?: "AH" | "BH"): string {
   return `${year} م / ${formatHijriYear(hijriYear, era)}`;
 }
