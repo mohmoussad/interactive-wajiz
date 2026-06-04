@@ -70,11 +70,11 @@ export function TimelineCanvas({
               />
             ))}
 
-            <TimelineMilestones
+            {/* <TimelineMilestones
               milestones={milestones}
               boundsMinYear={bounds.minYear}
               pixelsPerYear={pixelsPerYear}
-            />
+            /> */}
           </div>
 
           <div className="timeline-rows">
