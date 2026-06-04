@@ -125,6 +125,28 @@ select {
 
 .home-page {
   padding: 28px;
+  overflow: auto;
+  display: block;
+}
+
+.home-page__content {
+  max-width: 880px;
+  padding: 28px 32px;
+  border: 1px solid rgba(209, 192, 160, 0.72);
+  border-radius: 28px;
+  background: rgba(255, 248, 234, 0.72);
+  box-shadow: var(--shadow);
+  line-height: 2;
+  font-size: 1.04rem;
+  margin: 0 auto;
+}
+
+.home-page__content p {
+  margin: 0;
+}
+
+.home-page__content p + p {
+  margin-top: 18px;
 }
 
 .toolbox {
