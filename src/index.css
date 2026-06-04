@@ -73,14 +73,6 @@ select {
   font-size: 1.5rem;
 }
 
-.timeline-header__eyebrow {
-  margin: 0;
-  color: var(--accent);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
 .timeline-header nav {
   display: flex;
   gap: 20px;
@@ -101,15 +93,12 @@ select {
   background: rgba(251, 245, 233, 0.88);
   border-bottom: 1px solid rgba(209, 192, 160, 0.95);
   gap: 24px;
-}
-
-.toolbox__left,
-.toolbox__right {
   display: flex;
   align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  justify-content: start;
 }
+
+
 
 .segmented-control {
   display: inline-flex;
