@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import type { HistoricalEntity } from "../../types/timeline";
-import { entityTypeLabels, regionLabels } from "./timelineConfig";
+import { regionLabels } from "./timelineConfig";
 import { formatYear } from "./timelineDates";
 
 interface TimelineEntityTooltipContentProps {
@@ -20,9 +20,6 @@ export function TimelineEntityTooltipContent({ entity }: TimelineEntityTooltipCo
             {formatYear(entity.endYear, entity.hijriEndYear)}
           </Typography>
         </Box>
-        <Typography variant="caption" sx={{ color: "text.secondary", whiteSpace: "nowrap" }}>
-          {entityTypeLabels[entity.type]}
-        </Typography>
       </Box>
 
       <Typography variant="body2" sx={{ mt: 1, color: "text.secondary", lineHeight: 1.6 }}>

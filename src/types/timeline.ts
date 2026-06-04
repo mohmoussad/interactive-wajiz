@@ -1,12 +1,3 @@
-export type EntityType =
-  | "caliphate"
-  | "dynasty"
-  | "empire"
-  | "kingdom"
-  | "alliance"
-  | "sultanate"
-  | "scholarly";
-
 export type Region =
   | "Arabian Peninsula"
   | "Levant"
@@ -20,7 +11,6 @@ export interface HistoricalEntity {
   id: string;
   name: string;
   region: Region;
-  type: EntityType;
   startYear: number;
   hijriStartYear: number;
   endYear: number;
