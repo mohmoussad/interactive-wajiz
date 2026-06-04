@@ -43,10 +43,10 @@ export function TimelineAxis({
             >
               {isTenYearMode ? (
                 <>
-                  <strong className="timeline-axis__label-primary">{year} م</strong>
-                  <strong className="timeline-axis__label-primary">
+                  <span className="timeline-axis__label-primary">{year} م</span>
+                  <span className="timeline-axis__label-primary">
                     {formatHijriYear(gregorianYearToHijriYear(year))}
-                  </strong>
+                  </span>
                 </>
               ) : (
                 formatYear(year, gregorianYearToHijriYear(year))
