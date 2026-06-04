@@ -1,6 +1,7 @@
 import type { HistoricalEntity, TimelineMilestone } from "../types/timeline";
 import { TimelineAxis } from "./timeline/TimelineAxis";
 import { TimelineEmptyState } from "./timeline/TimelineEmptyState";
+import { TimelineGrid } from "./timeline/TimelineGrid";
 import { TimelineRows } from "./timeline/TimelineRows";
 import { useTimelineCanvasController } from "./timeline/useTimelineCanvasController";
 
@@ -40,9 +41,6 @@ export function TimelineCanvas({
     return <TimelineEmptyState />;
   }
 
-  const getVisibleYearOffset = (year: number) =>
-    Math.min((year - bounds.minYear) * pixelsPerYear, timelineWidth - 1);
-
   return (
     <main
       ref={containerRef}
@@ -62,21 +60,12 @@ export function TimelineCanvas({
         />
 
         <div className="timeline-body">
-          <div className="timeline-grid" style={{ width: timelineWidth }}>
-            {axisYears.map((year) => (
-              <span
-                key={year}
-                className="timeline-grid__line"
-                style={{ insetInlineStart: getVisibleYearOffset(year) }}
-              />
-            ))}
-
-            {/* <TimelineMilestones
-              milestones={milestones}
-              boundsMinYear={bounds.minYear}
-              pixelsPerYear={pixelsPerYear}
-            /> */}
-          </div>
+          <TimelineGrid
+            axisYears={axisYears}
+            boundsMinYear={bounds.minYear}
+            pixelsPerYear={pixelsPerYear}
+            timelineWidth={timelineWidth}
+          />
 
           <div className="timeline-rows">
             <TimelineRows

@@ -266,32 +266,7 @@ select {
   backdrop-filter: blur(16px);
 }
 
-.segmented-control {
-  display: inline-flex;
-  gap: 6px;
-  padding: 6px;
-  background: rgba(225, 212, 180, 0.72);
-  border-radius: 999px;
-}
-
-.segmented-control button {
-  border: 0;
-  padding: 10px 16px;
-  background: transparent;
-  border-radius: 999px;
-  color: var(--muted);
-  cursor: pointer;
-  transition: 160ms ease;
-}
-
-.segmented-control button.is-active {
-  background: var(--panel-strong);
-  color: var(--accent);
-  box-shadow: var(--shadow);
-}
-
-.zoom-control,
-.field {
+.zoom-control {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -343,31 +318,9 @@ select {
   box-shadow: 0 4px 12px rgba(61, 42, 18, 0.16);
 }
 
-.field span:first-child,
 .zoom-control span {
   color: var(--muted);
   font-size: 0.92rem;
-}
-
-.field select,
-.field input {
-  border: 0;
-  outline: 0;
-  background: transparent;
-  min-width: 140px;
-  color: var(--text);
-}
-
-.field--search {
-  min-width: 280px;
-}
-
-.field--search input {
-  width: 100%;
-}
-
-.field__icon {
-  color: var(--muted);
 }
 
 .timeline-canvas {
@@ -433,10 +386,6 @@ select {
   border-inline-end: 1px solid rgba(209, 192, 160, 0.6);
 }
 
-/* .timeline-axis__tick--major {
-  border-inline-end-color: rgba(122, 98, 58, 0.72);
-} */
-
 .timeline-axis__label {
   position: absolute;
   top: 50%;
@@ -448,8 +397,6 @@ select {
   white-space: nowrap;
   padding: 4px 8px;
   border-radius: 999px;
-  /* background: rgba(255, 248, 234, 0.88); */
-  /* box-shadow: 0 4px 12px rgba(61, 42, 18, 0.08); */
   font-weight: 700;
 }
 
@@ -546,57 +493,6 @@ select {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.timeline-milestone {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 4;
-  width: 0;
-  border-inline-end: 2px dashed rgba(0, 0, 0, 0.2);
-}
-
-.timeline-milestone__badge {
-  position: absolute;
-  top: 12px;
-  inset-inline-start: -15px;
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-weight: 800;
-  cursor: help;
-  pointer-events: auto;
-}
-
-.timeline-milestone__card {
-  position: absolute;
-  top: 48px;
-  inset-inline-start: -86px;
-  width: 180px;
-  padding: 12px;
-  border-radius: 18px;
-  background: rgba(255, 249, 238, 0.96);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-  opacity: 0;
-  transform: translateY(8px);
-  transition: 160ms ease;
-  pointer-events: none;
-}
-
-.timeline-milestone:hover .timeline-milestone__card {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.timeline-milestone__card p,
-.timeline-milestone__card small {
-  margin: 6px 0 0;
-  color: var(--muted);
 }
 
 ::-webkit-scrollbar {

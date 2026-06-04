@@ -1,26 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { historicalEntities, timelineMilestones } from "../data/historicalData";
 import { TimelineCanvas } from "./TimelineCanvas";
+import { useSelectedTimelineEntity } from "./timeline/useSelectedTimelineEntity";
 import { Toolbox } from "./Toolbox";
 
 export function TimelineDashboard() {
   const [zoomLevel, setZoomLevel] = useState(1.35);
-  const [selectedEntityId, setSelectedEntityId] = useState<string | null>(
-    historicalEntities[0]?.id ?? null,
-  );
-
-  useEffect(() => {
-    if (historicalEntities.some((entity) => entity.id === selectedEntityId)) {
-      return;
-    }
-
-    setSelectedEntityId(historicalEntities[0]?.id ?? null);
-  }, [selectedEntityId]);
-
-  const selectedEntity =
-    historicalEntities.find((entity) => entity.id === selectedEntityId) ??
-    historicalEntities[0] ??
-    null;
+  const { selectedEntity, selectEntity } = useSelectedTimelineEntity(historicalEntities);
 
   return (
     <section className="timeline-dashboard" dir="rtl">
@@ -34,7 +20,7 @@ export function TimelineDashboard() {
         milestones={timelineMilestones}
         zoomLevel={zoomLevel}
         selectedEntityId={selectedEntity?.id ?? null}
-        onSelectEntity={(entityId) => setSelectedEntityId(entityId || null)}
+        onSelectEntity={selectEntity}
         onZoomChange={setZoomLevel}
       />
     </section>

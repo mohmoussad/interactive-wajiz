@@ -4,6 +4,7 @@ import {
   gregorianYearToHijriYear,
 } from "./timelineDates";
 import { getAxisInterval, TIMELINE_START_YEAR } from "./timelineConfig";
+import { getVisibleYearOffset } from "./timelineGeometry";
 
 interface TimelineAxisProps {
   axisYears: number[];
@@ -23,8 +24,6 @@ export function TimelineAxis({
   const axisInterval = getAxisInterval(zoomLevel);
   const isTenYearMode = axisInterval === 10;
   const terminalYear = axisYears[axisYears.length - 1];
-  const getVisibleYearOffset = (year: number) =>
-    Math.min((year - boundsMinYear) * pixelsPerYear, timelineWidth - 1);
 
   return (
     <div className="timeline-axis">
@@ -41,7 +40,14 @@ export function TimelineAxis({
                 (year - TIMELINE_START_YEAR) % 100 === 0 ? "timeline-axis__tick--major" : "",
                 isTerminalTick ? "timeline-axis__tick--terminal" : "",
               ].join(" ")}
-              style={{ insetInlineStart: getVisibleYearOffset(year) }}
+              style={{
+                insetInlineStart: getVisibleYearOffset(
+                  year,
+                  boundsMinYear,
+                  pixelsPerYear,
+                  timelineWidth,
+                ),
+              }}
             >
               <span
                 className={[
