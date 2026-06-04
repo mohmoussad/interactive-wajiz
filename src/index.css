@@ -340,6 +340,7 @@ select {
   top: 10px;
   inset-inline-start: 50%;
   transform: translateX(-50%);
+  display: block;
   color: var(--muted);
   font-size: 0.83rem;
   white-space: nowrap;
@@ -347,6 +348,29 @@ select {
   border-radius: 999px;
   background: rgba(255, 248, 234, 0.88);
   box-shadow: 0 4px 12px rgba(61, 42, 18, 0.08);
+}
+
+.timeline-axis__label--compact {
+  min-width: 54px;
+  padding: 6px 6px 5px;
+  border-radius: 14px;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.2;
+}
+
+.timeline-axis__label-primary {
+  display: block;
+  color: var(--text);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.timeline-axis__label-secondary {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.66rem;
 }
 
 .timeline-body {

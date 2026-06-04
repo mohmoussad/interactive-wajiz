@@ -57,6 +57,7 @@ export function TimelineCanvas({
           boundsMinYear={bounds.minYear}
           pixelsPerYear={pixelsPerYear}
           timelineWidth={timelineWidth}
+          zoomLevel={zoomLevel}
         />
 
         <div className="timeline-body">

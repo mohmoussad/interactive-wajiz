@@ -1,11 +1,16 @@
-import { formatYear, gregorianYearToHijriYear } from "./timelineDates";
-import { TIMELINE_START_YEAR } from "./timelineConfig";
+import {
+  formatHijriYear,
+  formatYear,
+  gregorianYearToHijriYear,
+} from "./timelineDates";
+import { getAxisInterval, TIMELINE_START_YEAR } from "./timelineConfig";
 
 interface TimelineAxisProps {
   axisYears: number[];
   boundsMinYear: number;
   pixelsPerYear: number;
   timelineWidth: number;
+  zoomLevel: number;
 }
 
 export function TimelineAxis({
@@ -13,7 +18,11 @@ export function TimelineAxis({
   boundsMinYear,
   pixelsPerYear,
   timelineWidth,
+  zoomLevel,
 }: TimelineAxisProps) {
+  const axisInterval = getAxisInterval(zoomLevel);
+  const isTenYearMode = axisInterval === 10;
+
   return (
     <div className="timeline-axis">
       <div className="timeline-axis__ticks" style={{ width: timelineWidth }}>
@@ -26,8 +35,22 @@ export function TimelineAxis({
             ].join(" ")}
             style={{ insetInlineStart: (year - boundsMinYear) * pixelsPerYear }}
           >
-            <span className="timeline-axis__label">
-              {formatYear(year, gregorianYearToHijriYear(year))}
+            <span
+              className={[
+                "timeline-axis__label",
+                isTenYearMode ? "timeline-axis__label--compact" : "",
+              ].join(" ")}
+            >
+              {isTenYearMode ? (
+                <>
+                  <strong className="timeline-axis__label-primary">{year} م</strong>
+                  <strong className="timeline-axis__label-primary">
+                    {formatHijriYear(gregorianYearToHijriYear(year))}
+                  </strong>
+                </>
+              ) : (
+                formatYear(year, gregorianYearToHijriYear(year))
+              )}
             </span>
           </div>
         ))}
