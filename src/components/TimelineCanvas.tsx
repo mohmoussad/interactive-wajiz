@@ -3,7 +3,6 @@ import { TimelineAxis } from "./timeline/TimelineAxis";
 import { TimelineEmptyState } from "./timeline/TimelineEmptyState";
 import { TimelineMilestones } from "./timeline/TimelineMilestones";
 import { TimelineRows } from "./timeline/TimelineRows";
-import { TimelineTooltip } from "./timeline/TimelineTooltip";
 import { useTimelineCanvasController } from "./timeline/useTimelineCanvasController";
 
 interface TimelineCanvasProps {
@@ -30,12 +29,8 @@ export function TimelineCanvas({
     handlePointerDown,
     handlePointerMove,
     handlePointerUp,
-    hideTooltip,
     pixelsPerYear,
-    showTooltip,
-    showTooltipAt,
     timelineWidth,
-    tooltip,
   } = useTimelineCanvasController({
     entities,
     milestones,
@@ -90,21 +85,10 @@ export function TimelineCanvas({
               timelineWidth={timelineWidth}
               selectedEntityId={selectedEntityId}
               onSelectEntity={onSelectEntity}
-              onShowTooltip={showTooltip}
-              onHideTooltip={hideTooltip}
-              onFocusTooltip={(entity, event) =>
-                showTooltipAt(
-                  entity,
-                  event.currentTarget.getBoundingClientRect().left + 24,
-                  event.currentTarget.getBoundingClientRect().top,
-                )
-              }
             />
           </div>
         </div>
       </div>
-
-      {tooltip ? <TimelineTooltip tooltip={tooltip} /> : null}
     </main>
   );
 }

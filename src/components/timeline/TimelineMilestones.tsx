@@ -1,3 +1,4 @@
+import Tooltip from "@mui/material/Tooltip";
 import type { TimelineMilestone } from "../../types/timeline";
 import { milestoneClassMap } from "./timelineConfig";
 import { formatYear } from "./timelineDates";
@@ -24,9 +25,24 @@ export function TimelineMilestones({
             insetInlineStart: (milestone.year - boundsMinYear) * pixelsPerYear,
           }}
         >
-          <div className="timeline-milestone__badge" title={milestone.title}>
-            <StarIcon fontSize="small" />
-          </div>
+          <Tooltip
+            title={milestone.title}
+            placement="top"
+            slotProps={{
+              tooltip: {
+                sx: {
+                  bgcolor: "rgba(255, 250, 241, 0.98)",
+                  color: "inherit",
+                  border: "1px solid var(--line)",
+                  boxShadow: "0 24px 50px rgba(28, 16, 68, 0.16)",
+                },
+              },
+            }}
+          >
+            <div className="timeline-milestone__badge">
+              <StarIcon fontSize="small" />
+            </div>
+          </Tooltip>
           <div className="timeline-milestone__card">
             <strong>{milestone.title}</strong>
             <p>{milestone.description}</p>

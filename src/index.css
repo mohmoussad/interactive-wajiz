@@ -413,43 +413,6 @@ select {
   background: #2c9a8d;
 }
 
-.timeline-tooltip {
-  position: fixed;
-  z-index: 30;
-  width: 300px;
-  padding: 16px;
-  border-radius: 22px;
-  border: 1px solid var(--line);
-  background: rgba(255, 250, 241, 0.98);
-  box-shadow: 0 24px 50px rgba(28, 16, 68, 0.16);
-  pointer-events: none;
-}
-
-.timeline-tooltip__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.timeline-tooltip__header small,
-.timeline-tooltip p,
-.timeline-tooltip__meta {
-  color: var(--muted);
-}
-
-.timeline-tooltip p {
-  margin: 10px 0 12px;
-  line-height: 1.6;
-}
-
-.timeline-tooltip__meta {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 0.88rem;
-}
-
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;

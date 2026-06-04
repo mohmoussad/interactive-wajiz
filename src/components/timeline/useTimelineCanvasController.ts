@@ -4,7 +4,6 @@ import {
   useMemo,
   useRef,
   useState,
-  type MouseEvent as ReactMouseEvent,
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import type {
@@ -12,7 +11,6 @@ import type {
   TimelineMilestone,
 } from "../../types/timeline";
 import { BASE_PIXELS_PER_YEAR, ROW_HEIGHT } from "./timelineConfig";
-import type { TimelineTooltipState } from "./timelineTypes";
 
 interface UseTimelineCanvasControllerProps {
   entities: HistoricalEntity[];
@@ -40,7 +38,6 @@ export function useTimelineCanvasController({
     left: number;
     midpointX: number;
   } | null>(null);
-  const [tooltip, setTooltip] = useState<TimelineTooltipState | null>(null);
   const [viewportWidth, setViewportWidth] = useState(0);
 
   const pixelsPerYear = BASE_PIXELS_PER_YEAR * zoomLevel;
@@ -108,12 +105,6 @@ export function useTimelineCanvasController({
       behavior: "smooth",
     });
   }, [entities, selectedEntityId]);
-
-  useEffect(() => {
-    if (entities.length === 0) {
-      setTooltip(null);
-    }
-  }, [entities]);
 
   useEffect(() => {
     const handleTouchStart = (event: TouchEvent) => {
@@ -209,16 +200,6 @@ export function useTimelineCanvasController({
     containerRef.current?.releasePointerCapture(event.pointerId);
   };
 
-  const showTooltip = (entity: HistoricalEntity, event: ReactMouseEvent<HTMLButtonElement>) => {
-    setTooltip({ entity, x: event.clientX, y: event.clientY });
-  };
-
-  const showTooltipAt = (entity: HistoricalEntity, x: number, y: number) => {
-    setTooltip({ entity, x, y });
-  };
-
-  const hideTooltip = () => setTooltip(null);
-
   return {
     axisYears,
     bounds,
@@ -226,11 +207,7 @@ export function useTimelineCanvasController({
     handlePointerDown,
     handlePointerMove,
     handlePointerUp,
-    hideTooltip,
     pixelsPerYear,
-    showTooltip,
-    showTooltipAt,
     timelineWidth,
-    tooltip,
   };
 }

@@ -1,6 +1,7 @@
-import type { FocusEvent as ReactFocusEvent, MouseEvent as ReactMouseEvent } from "react";
+import Tooltip from "@mui/material/Tooltip";
 import type { HistoricalEntity } from "../../types/timeline";
 import { accentClassMap, ROW_HEIGHT } from "./timelineConfig";
+import { TimelineEntityTooltipContent } from "./TimelineEntityTooltipContent";
 
 interface TimelineRowsProps {
   entities: HistoricalEntity[];
@@ -9,9 +10,6 @@ interface TimelineRowsProps {
   timelineWidth: number;
   selectedEntityId: string | null;
   onSelectEntity: (entityId: string) => void;
-  onShowTooltip: (entity: HistoricalEntity, event: ReactMouseEvent<HTMLButtonElement>) => void;
-  onHideTooltip: () => void;
-  onFocusTooltip: (entity: HistoricalEntity, event: ReactFocusEvent<HTMLButtonElement>) => void;
 }
 
 export function TimelineRows({
@@ -21,9 +19,6 @@ export function TimelineRows({
   timelineWidth,
   selectedEntityId,
   onSelectEntity,
-  onShowTooltip,
-  onHideTooltip,
-  onFocusTooltip,
 }: TimelineRowsProps) {
   return (
     <>
@@ -35,30 +30,44 @@ export function TimelineRows({
         return (
           <div key={entity.id} className="timeline-row" style={{ height: ROW_HEIGHT }}>
             <div className="timeline-row__track" style={{ width: timelineWidth }}>
-              <button
-                type="button"
-                className={[
-                  "timeline-bar",
-                  accentClassMap[entity.accent],
-                  isSelected ? "is-selected" : "",
-                ].join(" ")}
-                style={{
-                  insetInlineStart: left,
-                  width,
-                  top: 14 + (index % 2 === 0 ? 0 : 2),
-                }}
-                onMouseEnter={(event) => onShowTooltip(entity, event)}
-                onMouseMove={(event) => onShowTooltip(entity, event)}
-                onMouseLeave={onHideTooltip}
-                onFocus={(event) => onFocusTooltip(entity, event)}
-                onBlur={onHideTooltip}
-                onClick={() => {
-                  console.log("Timeline entity clicked:", entity.id);
-                  onSelectEntity(entity.id);
+              <Tooltip
+                title={<TimelineEntityTooltipContent entity={entity} />}
+                placement="top"
+                followCursor
+                enterDelay={0}
+                leaveDelay={0}
+                slotProps={{
+                  tooltip: {
+                    sx: {
+                      bgcolor: "rgba(255, 250, 241, 0.98)",
+                      color: "inherit",
+                      border: "1px solid var(--line)",
+                      boxShadow: "0 24px 50px rgba(28, 16, 68, 0.16)",
+                      p: 0,
+                    },
+                  },
                 }}
               >
-                <span>{entity.name}</span>
-              </button>
+                <button
+                  type="button"
+                  className={[
+                    "timeline-bar",
+                    accentClassMap[entity.accent],
+                    isSelected ? "is-selected" : "",
+                  ].join(" ")}
+                  style={{
+                    insetInlineStart: left,
+                    width,
+                    top: 14 + (index % 2 === 0 ? 0 : 2),
+                  }}
+                  onClick={() => {
+                    console.log("Timeline entity clicked:", entity.id);
+                    onSelectEntity(entity.id);
+                  }}
+                >
+                  <span>{entity.name}</span>
+                </button>
+              </Tooltip>
             </div>
           </div>
         );
