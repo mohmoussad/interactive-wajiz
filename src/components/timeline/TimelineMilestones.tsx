@@ -3,6 +3,7 @@ import type { TimelineMilestone } from "../../types/timeline";
 import { milestoneClassMap } from "./timelineConfig";
 import { formatYear } from "./timelineDates";
 import StarIcon from '@mui/icons-material/Star';
+import { TimelineMilestoneTooltipContent } from "./TimelineMilestoneTooltipContent";
 
 interface TimelineMilestonesProps {
   milestones: TimelineMilestone[];
@@ -26,7 +27,7 @@ export function TimelineMilestones({
           }}
         >
           <Tooltip
-            title={milestone.title}
+            title={<TimelineMilestoneTooltipContent milestone={milestone} />}
             placement="top"
             slotProps={{
               tooltip: {
