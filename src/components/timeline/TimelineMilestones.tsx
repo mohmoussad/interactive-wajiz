@@ -1,8 +1,7 @@
 import Tooltip from "@mui/material/Tooltip";
 import type { TimelineMilestone } from "../../types/timeline";
-import { milestoneClassMap } from "./timelineConfig";
 import { formatYear } from "./timelineDates";
-import StarIcon from '@mui/icons-material/Star';
+import StarIcon from "@mui/icons-material/Star";
 import { TimelineMilestoneTooltipContent } from "./TimelineMilestoneTooltipContent";
 
 interface TimelineMilestonesProps {
@@ -21,8 +20,9 @@ export function TimelineMilestones({
       {milestones.map((milestone) => (
         <div
           key={milestone.id}
-          className={`timeline-milestone ${milestoneClassMap[milestone.accent]}`}
+          className="timeline-milestone"
           style={{
+            borderColor: milestone.color,
             insetInlineStart: (milestone.year - boundsMinYear) * pixelsPerYear,
           }}
         >
@@ -40,7 +40,7 @@ export function TimelineMilestones({
               },
             }}
           >
-            <div className="timeline-milestone__badge">
+            <div className="timeline-milestone__badge" style={{ background: milestone.color }}>
               <StarIcon fontSize="small" />
             </div>
           </Tooltip>

@@ -1,6 +1,6 @@
 import Tooltip from "@mui/material/Tooltip";
 import type { HistoricalEntity } from "../../types/timeline";
-import { accentClassMap, ROW_HEIGHT } from "./timelineConfig";
+import { ROW_HEIGHT } from "./timelineConfig";
 import { TimelineEntityTooltipContent } from "./TimelineEntityTooltipContent";
 
 interface TimelineRowsProps {
@@ -50,12 +50,9 @@ export function TimelineRows({
               >
                 <button
                   type="button"
-                  className={[
-                    "timeline-bar",
-                    accentClassMap[entity.accent],
-                    isSelected ? "is-selected" : "",
-                  ].join(" ")}
+                  className={["timeline-bar", isSelected ? "is-selected" : ""].join(" ")}
                   style={{
+                    background: entity.color,
                     insetInlineStart: left,
                     width,
                     top: 14 + (index % 2 === 0 ? 0 : 2),

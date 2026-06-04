@@ -314,30 +314,6 @@ select {
   white-space: nowrap;
 }
 
-.timeline-bar--emerald {
-  background: linear-gradient(135deg, #0e6651, #177c61);
-}
-
-.timeline-bar--amber {
-  background: linear-gradient(135deg, #8f5e10, #c18a2f);
-}
-
-.timeline-bar--rose {
-  background: linear-gradient(135deg, #7f2f4d, #b24c67);
-}
-
-.timeline-bar--indigo {
-  background: linear-gradient(135deg, #33447a, #5168b9);
-}
-
-.timeline-bar--teal {
-  background: linear-gradient(135deg, #0a7a73, #2c9a8d);
-}
-
-.timeline-bar--orange {
-  background: linear-gradient(135deg, #9b4b13, #d07a34);
-}
-
 .timeline-milestone {
   position: absolute;
   top: 0;
@@ -387,30 +363,6 @@ select {
 .timeline-milestone__card small {
   margin: 6px 0 0;
   color: var(--muted);
-}
-
-.timeline-milestone--rose {
-  border-color: rgba(178, 76, 103, 0.45);
-}
-
-.timeline-milestone--rose .timeline-milestone__badge {
-  background: #b24c67;
-}
-
-.timeline-milestone--orange {
-  border-color: rgba(208, 122, 52, 0.45);
-}
-
-.timeline-milestone--orange .timeline-milestone__badge {
-  background: #d07a34;
-}
-
-.timeline-milestone--teal {
-  border-color: rgba(44, 154, 141, 0.45);
-}
-
-.timeline-milestone--teal .timeline-milestone__badge {
-  background: #2c9a8d;
 }
 
 ::-webkit-scrollbar {

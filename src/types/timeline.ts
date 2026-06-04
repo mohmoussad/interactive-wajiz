@@ -28,7 +28,7 @@ export interface HistoricalEntity {
   peakYear: number;
   hijriPeakYear: number;
   summary: string;
-  accent: "emerald" | "amber" | "rose" | "indigo" | "teal" | "orange";
+  color: string;
 }
 
 export interface TimelineMilestone {
@@ -38,5 +38,5 @@ export interface TimelineMilestone {
   hijriYear: number;
   hijriEra?: "AH" | "BH";
   description: string;
-  accent: "rose" | "orange" | "teal";
+  color: string;
 }

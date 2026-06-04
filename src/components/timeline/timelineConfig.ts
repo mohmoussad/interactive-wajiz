@@ -1,22 +1,7 @@
-import type { EntityType, HistoricalEntity, Region } from "../../types/timeline";
+import type { EntityType, Region } from "../../types/timeline";
 
 export const ROW_HEIGHT = 64;
 export const BASE_PIXELS_PER_YEAR = 2.2;
-
-export const accentClassMap: Record<HistoricalEntity["accent"], string> = {
-  amber: "timeline-bar--amber",
-  emerald: "timeline-bar--emerald",
-  indigo: "timeline-bar--indigo",
-  orange: "timeline-bar--orange",
-  rose: "timeline-bar--rose",
-  teal: "timeline-bar--teal",
-};
-
-export const milestoneClassMap: Record<"orange" | "rose" | "teal", string> = {
-  orange: "timeline-milestone--orange",
-  rose: "timeline-milestone--rose",
-  teal: "timeline-milestone--teal",
-};
 
 export const regionLabels: Record<Region, string> = {
   "Arabian Peninsula": "شبه الجزيرة العربية",

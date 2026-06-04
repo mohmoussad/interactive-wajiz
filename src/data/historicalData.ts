@@ -13,7 +13,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 656,
     hijriPeakYear: 35,
     summary: "مرحلة التأسيس السياسي الأولى للدولة الإسلامية واتساعها السريع.",
-    accent: "emerald",
+    color: "linear-gradient(135deg, #0e6651, #177c61)",
   },
   {
     id: "umayyad-caliphate",
@@ -27,7 +27,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 715,
     hijriPeakYear: 96,
     summary: "دولة مركزها دمشق امتدت من الأندلس إلى حدود الهند.",
-    accent: "orange",
+    color: "linear-gradient(135deg, #9b4b13, #d07a34)",
   },
   {
     id: "abbasid-caliphate",
@@ -41,7 +41,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 830,
     hijriPeakYear: 215,
     summary: "خلافة كبرى مركزها بغداد عُرفت بازدهار العلم والثقافة.",
-    accent: "indigo",
+    color: "linear-gradient(135deg, #33447a, #5168b9)",
   },
   {
     id: "idrisid-dynasty",
@@ -55,7 +55,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 836,
     hijriPeakYear: 221,
     summary: "سلالة علوية حكمت المغرب وأسهمت في تأسيس فاس.",
-    accent: "teal",
+    color: "linear-gradient(135deg, #0a7a73, #2c9a8d)",
   },
   {
     id: "aghlabid-dynasty",
@@ -69,7 +69,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 875,
     hijriPeakYear: 262,
     summary: "إمارة في إفريقية تابعة اسميًا للعباسيين وقوية بحريًا.",
-    accent: "amber",
+    color: "linear-gradient(135deg, #8f5e10, #c18a2f)",
   },
   {
     id: "zaydi-first-state",
@@ -83,7 +83,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 845,
     hijriPeakYear: 230,
     summary: "حكم زيدي مبكر في مناطق من الجزيرة العربية واليمن.",
-    accent: "rose",
+    color: "linear-gradient(135deg, #7f2f4d, #b24c67)",
   },
   {
     id: "tulunid-dynasty",
@@ -97,7 +97,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 884,
     hijriPeakYear: 271,
     summary: "دولة مستقلة فعليًا في مصر والشام أسسها أحمد بن طولون.",
-    accent: "emerald",
+    color: "linear-gradient(135deg, #0e6651, #177c61)",
   },
   {
     id: "samanid-empire",
@@ -111,7 +111,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 928,
     hijriPeakYear: 316,
     summary: "دولة فارسية سنية في خراسان وما وراء النهر.",
-    accent: "indigo",
+    color: "linear-gradient(135deg, #33447a, #5168b9)",
   },
   {
     id: "fatimid-caliphate",
@@ -125,7 +125,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 969,
     hijriPeakYear: 358,
     summary: "خلافة إسماعيلية سيطرت على المغرب ثم مصر وأسست القاهرة.",
-    accent: "rose",
+    color: "linear-gradient(135deg, #7f2f4d, #b24c67)",
   },
   {
     id: "hamdanid-dynasty",
@@ -139,7 +139,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 950,
     hijriPeakYear: 339,
     summary: "سلالة عربية حكمت الموصل وحلب وبرزت في مواجهة البيزنطيين.",
-    accent: "orange",
+    color: "linear-gradient(135deg, #9b4b13, #d07a34)",
   },
   {
     id: "buyid-dynasty",
@@ -153,7 +153,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 970,
     hijriPeakYear: 359,
     summary: "قوة فارسية شيعية سيطرت على بغداد مع بقاء الخلافة العباسية رمزيًا.",
-    accent: "teal",
+    color: "linear-gradient(135deg, #0a7a73, #2c9a8d)",
   },
   {
     id: "ikhshidid-dynasty",
@@ -167,7 +167,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 946,
     hijriPeakYear: 334,
     summary: "دولة حكمت مصر والشام قبل دخول الفاطميين.",
-    accent: "amber",
+    color: "linear-gradient(135deg, #8f5e10, #c18a2f)",
   },
   {
     id: "zirid-dynasty",
@@ -181,7 +181,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 980,
     hijriPeakYear: 370,
     summary: "سلالة صنهاجية حكمت أجزاء من المغرب وإفريقية.",
-    accent: "emerald",
+    color: "linear-gradient(135deg, #0e6651, #177c61)",
   },
   {
     id: "ghaznavid-empire",
@@ -195,7 +195,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 1030,
     hijriPeakYear: 421,
     summary: "إمبراطورية تركية فارسية توسعت في خراسان وشمال الهند.",
-    accent: "indigo",
+    color: "linear-gradient(135deg, #33447a, #5168b9)",
   },
   {
     id: "seljuk-empire",
@@ -209,7 +209,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 1092,
     hijriPeakYear: 485,
     summary: "قوة تركية سنية سيطرت على فارس والعراق والأناضول.",
-    accent: "amber",
+    color: "linear-gradient(135deg, #8f5e10, #c18a2f)",
   },
   {
     id: "almoravid-dynasty",
@@ -223,7 +223,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 1100,
     hijriPeakYear: 493,
     summary: "حركة ودولة مغاربية وحدت المغرب والأندلس فترة من الزمن.",
-    accent: "teal",
+    color: "linear-gradient(135deg, #0a7a73, #2c9a8d)",
   },
   {
     id: "crusades",
@@ -237,7 +237,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 1187,
     hijriPeakYear: 583,
     summary: "سلسلة حملات عسكرية أوروبية على المشرق الإسلامي.",
-    accent: "rose",
+    color: "linear-gradient(135deg, #7f2f4d, #b24c67)",
   },
   {
     id: "zengid-dynasty",
@@ -251,7 +251,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 1146,
     hijriPeakYear: 541,
     summary: "دولة تركية في الشام والعراق مهّدت لظهور صلاح الدين.",
-    accent: "orange",
+    color: "linear-gradient(135deg, #9b4b13, #d07a34)",
   },
   {
     id: "almohad-caliphate",
@@ -265,7 +265,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 1195,
     hijriPeakYear: 591,
     summary: "دولة مغاربية كبرى حكمت المغرب والأندلس بعد المرابطين.",
-    accent: "emerald",
+    color: "linear-gradient(135deg, #0e6651, #177c61)",
   },
   {
     id: "ayyubid-dynasty",
@@ -279,7 +279,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 1193,
     hijriPeakYear: 589,
     summary: "سلالة صلاح الدين التي وحدت مصر والشام في مواجهة الصليبيين.",
-    accent: "teal",
+    color: "linear-gradient(135deg, #0a7a73, #2c9a8d)",
   },
   {
     id: "hafsid-dynasty",
@@ -293,7 +293,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 1270,
     hijriPeakYear: 669,
     summary: "دولة مغاربية حكمت إفريقية ومركزها تونس.",
-    accent: "amber",
+    color: "linear-gradient(135deg, #8f5e10, #c18a2f)",
   },
   {
     id: "mamluk-sultanate",
@@ -307,7 +307,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 1260,
     hijriPeakYear: 658,
     summary: "سلطنة عسكرية حكمت مصر والشام وصدت المغول والصليبيين.",
-    accent: "emerald",
+    color: "linear-gradient(135deg, #0e6651, #177c61)",
   },
   {
     id: "marinid-dynasty",
@@ -321,7 +321,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 1340,
     hijriPeakYear: 741,
     summary: "سلالة مغربية خلفت الموحدين وحكمت أجزاء واسعة من المغرب.",
-    accent: "orange",
+    color: "linear-gradient(135deg, #9b4b13, #d07a34)",
   },
   {
     id: "ottoman-empire",
@@ -335,7 +335,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 1566,
     hijriPeakYear: 974,
     summary: "إمبراطورية كبرى امتدت من الأناضول إلى البلقان والعالم العربي.",
-    accent: "indigo",
+    color: "linear-gradient(135deg, #33447a, #5168b9)",
   },
   {
     id: "safavid-empire",
@@ -349,7 +349,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 1629,
     hijriPeakYear: 1038,
     summary: "إمبراطورية إيرانية شيعية جعلت التشيع الاثني عشري مذهبًا رسميًا.",
-    accent: "rose",
+    color: "linear-gradient(135deg, #7f2f4d, #b24c67)",
   },
   {
     id: "zaydi-imamate-yemen",
@@ -363,7 +363,7 @@ export const historicalEntities: HistoricalEntity[] = [
     peakYear: 1700,
     hijriPeakYear: 1112,
     summary: "إمامة زيدية في اليمن استمرت حتى دخول العثمانيين صنعاء.",
-    accent: "teal",
+    color: "linear-gradient(135deg, #0a7a73, #2c9a8d)",
   },
 ];
 
@@ -375,7 +375,7 @@ export const timelineMilestones: TimelineMilestone[] = [
     hijriYear: 53,
     hijriEra: "BH",
     description: "بداية السيرة النبوية في مكة قبل البعثة والرسالة.",
-    accent: "rose",
+    color: "#b24c67",
   },
   {
     id: "hijrah",
@@ -383,7 +383,7 @@ export const timelineMilestones: TimelineMilestone[] = [
     year: 622,
     hijriYear: 1,
     description: "انتقال النبي محمد والمسلمين من مكة إلى المدينة وبداية التقويم الهجري.",
-    accent: "teal",
+    color: "#2c9a8d",
   },
   {
     id: "death-of-prophet-muhammad",
@@ -391,6 +391,6 @@ export const timelineMilestones: TimelineMilestone[] = [
     year: 632,
     hijriYear: 11,
     description: "الحدث الذي خُتمت به المرحلة النبوية وبدأت بعده مرحلة الخلافة الراشدة.",
-    accent: "orange",
+    color: "#d07a34",
   },
 ];
