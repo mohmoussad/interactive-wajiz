@@ -1,16 +1,16 @@
+import { getAxisInterval, ZOOM_MAX, ZOOM_MIN, ZOOM_STEP } from "./timeline/timelineConfig";
+
 interface ToolboxProps {
   zoomLevel: number;
   onZoomChange: (value: number) => void;
 }
 
-const ZOOM_MIN = 0.75;
-const ZOOM_MAX = 3;
-const ZOOM_STEP = 0.05;
-
 export function Toolbox({
   zoomLevel,
   onZoomChange,
 }: ToolboxProps) {
+  const axisInterval = getAxisInterval(zoomLevel);
+
   return (
     <section className="toolbox">
       <div className="toolbox__right">
@@ -25,7 +25,15 @@ export function Toolbox({
             onChange={(event) => onZoomChange(Number(event.target.value))}
             aria-label="التكبير"
           />
-          <strong>{zoomLevel < 1.1 ? "قرون" : zoomLevel < 1.8 ? "عقود" : "سنوات"}</strong>
+          <strong>
+            {axisInterval === 100
+              ? "قرن"
+              : axisInterval === 50
+                ? "50 سنة"
+                : axisInterval === 25
+                  ? "25 سنة"
+                  : "10 سنوات"}
+          </strong>
         </label>
       </div>
     </section>

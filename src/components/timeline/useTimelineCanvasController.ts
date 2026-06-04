@@ -6,15 +6,19 @@ import {
   useState,
   type PointerEvent as ReactPointerEvent,
 } from "react";
-import type {
-  HistoricalEntity,
-  TimelineMilestone,
-} from "../../types/timeline";
-import { BASE_PIXELS_PER_YEAR, ROW_HEIGHT } from "./timelineConfig";
+import type { HistoricalEntity } from "../../types/timeline";
+import {
+  BASE_PIXELS_PER_YEAR,
+  getAxisInterval,
+  ROW_HEIGHT,
+  TIMELINE_END_YEAR,
+  TIMELINE_START_YEAR,
+  ZOOM_MAX,
+  ZOOM_MIN,
+} from "./timelineConfig";
 
 interface UseTimelineCanvasControllerProps {
   entities: HistoricalEntity[];
-  milestones: TimelineMilestone[];
   zoomLevel: number;
   selectedEntityId: string | null;
   onZoomChange: (value: number) => void;
@@ -22,7 +26,6 @@ interface UseTimelineCanvasControllerProps {
 
 export function useTimelineCanvasController({
   entities,
-  milestones,
   zoomLevel,
   selectedEntityId,
   onZoomChange,
@@ -42,32 +45,27 @@ export function useTimelineCanvasController({
 
   const pixelsPerYear = BASE_PIXELS_PER_YEAR * zoomLevel;
 
-  const bounds = useMemo(() => {
-    const years = [
-      ...entities.flatMap((entity) => [entity.startYear, entity.endYear]),
-      ...milestones.map((milestone) => milestone.year),
-    ];
-
-    if (years.length === 0) {
-      return { minYear: 570, maxYear: 1500 };
-    }
-
-    return {
-      minYear: Math.min(...years) - 40,
-      maxYear: Math.max(...years) + 40,
-    };
-  }, [entities, milestones]);
+  const bounds = useMemo(
+    () => ({
+      minYear: TIMELINE_START_YEAR,
+      maxYear: TIMELINE_END_YEAR,
+    }),
+    [],
+  );
 
   const totalYears = bounds.maxYear - bounds.minYear;
   const timelineWidth = Math.max(totalYears * pixelsPerYear, viewportWidth);
 
   const axisYears = useMemo(() => {
-    const interval = zoomLevel < 1.2 ? 100 : zoomLevel < 2 ? 50 : 25;
-    const firstTick = Math.floor(bounds.minYear / interval) * interval;
+    const interval = getAxisInterval(zoomLevel);
     const years: number[] = [];
 
-    for (let year = firstTick; year <= bounds.maxYear; year += interval) {
+    for (let year = bounds.minYear; year <= bounds.maxYear; year += interval) {
       years.push(year);
+    }
+
+    if (years[years.length - 1] !== bounds.maxYear) {
+      years.push(bounds.maxYear);
     }
 
     return years;
@@ -169,7 +167,7 @@ export function useTimelineCanvasController({
     };
   }, [onZoomChange, totalYears, zoomLevel]);
 
-  const clampZoom = (value: number) => Math.min(3, Math.max(0.75, value));
+  const clampZoom = (value: number) => Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, value));
 
   const handlePointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (!containerRef.current) {

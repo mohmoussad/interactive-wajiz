@@ -1,4 +1,5 @@
 import { formatYear, gregorianYearToHijriYear } from "./timelineDates";
+import { TIMELINE_START_YEAR } from "./timelineConfig";
 
 interface TimelineAxisProps {
   axisYears: number[];
@@ -19,7 +20,10 @@ export function TimelineAxis({
         {axisYears.map((year) => (
           <div
             key={year}
-            className="timeline-axis__tick"
+            className={[
+              "timeline-axis__tick",
+              (year - TIMELINE_START_YEAR) % 100 === 0 ? "timeline-axis__tick--major" : "",
+            ].join(" ")}
             style={{ insetInlineStart: (year - boundsMinYear) * pixelsPerYear }}
           >
             <span className="timeline-axis__label">
