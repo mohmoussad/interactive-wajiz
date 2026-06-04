@@ -1,6 +1,7 @@
 import type { TimelineMilestone } from "../../types/timeline";
 import { milestoneClassMap } from "./timelineConfig";
 import { formatYear } from "./timelineDates";
+import StarIcon from '@mui/icons-material/Star';
 
 interface TimelineMilestonesProps {
   milestones: TimelineMilestone[];
@@ -24,7 +25,7 @@ export function TimelineMilestones({
           }}
         >
           <div className="timeline-milestone__badge" title={milestone.title}>
-            !
+            <StarIcon fontSize="small" />
           </div>
           <div className="timeline-milestone__card">
             <strong>{milestone.title}</strong>
