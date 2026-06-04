@@ -119,8 +119,8 @@ select {
 }
 
 .app-nav__link--muted {
-  opacity: 0.88;
-  cursor: default;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .app-shell__content {
