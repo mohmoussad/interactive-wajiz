@@ -23,13 +23,7 @@ export function TimelineDashboard() {
     null;
 
   return (
-    <div className="timeline-dashboard" dir="rtl">
-      <header className="timeline-header">
-        <div>
-          <p className="timeline-header__eyebrow">التاريخ الإسلامي الوجيز</p>
-        </div>
-      </header>
-
+    <section className="timeline-dashboard" dir="rtl">
       <Toolbox
         zoomLevel={zoomLevel}
         onZoomChange={setZoomLevel}
@@ -43,6 +37,6 @@ export function TimelineDashboard() {
         onSelectEntity={(entityId) => setSelectedEntityId(entityId || null)}
         onZoomChange={setZoomLevel}
       />
-    </div>
+    </section>
   );
 }

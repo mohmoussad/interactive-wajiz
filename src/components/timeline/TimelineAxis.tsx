@@ -14,7 +14,7 @@ export function TimelineAxis({
   timelineWidth,
 }: TimelineAxisProps) {
   return (
-    <div className="timeline-axis" style={{ minHeight: 72 }}>
+    <div className="timeline-axis">
       <div className="timeline-axis__ticks" style={{ width: timelineWidth }}>
         {axisYears.map((year) => (
           <div
@@ -22,7 +22,9 @@ export function TimelineAxis({
             className="timeline-axis__tick"
             style={{ insetInlineStart: (year - boundsMinYear) * pixelsPerYear }}
           >
-            {formatYear(year, gregorianYearToHijriYear(year))}
+            <span className="timeline-axis__label">
+              {formatYear(year, gregorianYearToHijriYear(year))}
+            </span>
           </div>
         ))}
       </div>
