@@ -40,6 +40,9 @@ export function TimelineCanvas({
     return <TimelineEmptyState />;
   }
 
+  const getVisibleYearOffset = (year: number) =>
+    Math.min((year - bounds.minYear) * pixelsPerYear, timelineWidth - 1);
+
   return (
     <main
       ref={containerRef}
@@ -64,7 +67,7 @@ export function TimelineCanvas({
               <span
                 key={year}
                 className="timeline-grid__line"
-                style={{ insetInlineStart: (year - bounds.minYear) * pixelsPerYear }}
+                style={{ insetInlineStart: getVisibleYearOffset(year) }}
               />
             ))}
 

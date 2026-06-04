@@ -28,8 +28,12 @@ export function TimelineRows({
         const isSelected = entity.id === selectedEntityId;
 
         return (
-          <div key={entity.id} className="timeline-row" style={{ height: ROW_HEIGHT }}>
-            <div className="timeline-row__track" style={{ width: timelineWidth }}>
+          <div
+            key={entity.id}
+            className="timeline-row"
+            style={{ height: ROW_HEIGHT, width: timelineWidth }}
+          >
+            <div className="timeline-row__track">
               <Tooltip
                 title={<TimelineEntityTooltipContent entity={entity} />}
                 placement="top"

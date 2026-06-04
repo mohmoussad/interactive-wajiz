@@ -453,6 +453,10 @@ select {
   font-weight: 700;
 }
 
+.timeline-axis__tick--terminal .timeline-axis__label {
+  display: none;
+}
+
 .timeline-axis__label--compact {
   min-width: 54px;
   padding: 6px 6px 5px;
