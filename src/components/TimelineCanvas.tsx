@@ -1,7 +1,6 @@
 import type { HistoricalEntity, TimelineMilestone } from "../types/timeline";
 import { TimelineAxis } from "./timeline/TimelineAxis";
 import { TimelineEmptyState } from "./timeline/TimelineEmptyState";
-import { TimelineMilestones } from "./timeline/TimelineMilestones";
 import { TimelineRows } from "./timeline/TimelineRows";
 import { useTimelineCanvasController } from "./timeline/useTimelineCanvasController";
 
@@ -16,7 +15,6 @@ interface TimelineCanvasProps {
 
 export function TimelineCanvas({
   entities,
-  milestones,
   zoomLevel,
   selectedEntityId,
   onSelectEntity,
