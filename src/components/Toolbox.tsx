@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { TimelineSourceModal } from "./timeline/TimelineSourceModal";
 import { getAxisInterval, ZOOM_MAX, ZOOM_MIN, ZOOM_STEP } from "./timeline/timelineConfig";
 
 interface ToolboxProps {
@@ -10,6 +12,7 @@ export function Toolbox({
   onZoomChange,
 }: ToolboxProps) {
   const axisInterval = getAxisInterval(zoomLevel);
+  const [isSourceModalOpen, setIsSourceModalOpen] = useState(false);
 
   return (
     <section className="toolbox">
@@ -36,6 +39,21 @@ export function Toolbox({
           </strong>
         </label>
       </div>
+
+      <div className="toolbox__left">
+        <button
+          type="button"
+          className="source-button"
+          onClick={() => setIsSourceModalOpen(true)}
+        >
+          المصدر
+        </button>
+      </div>
+
+      <TimelineSourceModal
+        isOpen={isSourceModalOpen}
+        onClose={() => setIsSourceModalOpen(false)}
+      />
     </section>
   );
 }
