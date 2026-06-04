@@ -31,9 +31,6 @@ export function TimelineEntityTooltipContent({ entity }: TimelineEntityTooltipCo
 
       <Box sx={{ mt: 1, display: "flex", flexDirection: "column", gap: 0.5 }}>
         <Typography variant="caption" sx={{ color: "text.secondary" }}>
-          الذروة: {formatYear(entity.peakYear, entity.hijriPeakYear)}
-        </Typography>
-        <Typography variant="caption" sx={{ color: "text.secondary" }}>
           المنطقة: {regionLabels[entity.region]}
         </Typography>
       </Box>

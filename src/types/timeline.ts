@@ -25,8 +25,6 @@ export interface HistoricalEntity {
   hijriStartYear: number;
   endYear: number;
   hijriEndYear: number;
-  peakYear: number;
-  hijriPeakYear: number;
   summary: string;
   color: string;
 }
