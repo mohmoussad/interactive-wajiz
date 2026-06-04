@@ -2,7 +2,7 @@
 
 An interactive educational project that transforms historical content into visual and explorable experiences.
 
-The project is based primarily on the book **"التاريخ الإسلامي الوجيز"** by **محمد سهيل طقوش** and aims to make historical relationships, timelines, geography, dynasties, and key figures easier to understand through interactive web-based visualizations.
+The project is based primarily on the book **التاريخ الإسلامي الوجيز** by **محمد سهيل طقوش** and aims to make historical relationships, timelines, geography, dynasties, and key figures easier to understand through interactive web-based visualizations.
 
 Rather than replacing the original text, this project serves as a companion resource that helps readers explore historical information in a more intuitive and engaging way.
 
