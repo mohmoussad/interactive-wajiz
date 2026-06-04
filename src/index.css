@@ -135,8 +135,46 @@ select {
   background: rgba(255, 250, 240, 0.76);
 }
 
-.zoom-control .MuiSlider-root {
+.zoom-control input[type="range"] {
   width: 160px;
+  margin: 0;
+  accent-color: var(--accent);
+  background: transparent;
+  cursor: pointer;
+}
+
+.zoom-control input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(270deg, var(--accent), var(--line-strong));
+}
+
+.zoom-control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-top: -5px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--panel-strong);
+  box-shadow: 0 4px 12px rgba(61, 42, 18, 0.16);
+}
+
+.zoom-control input[type="range"]::-moz-range-track {
+  height: 6px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(270deg, var(--accent), var(--line-strong));
+}
+
+.zoom-control input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--panel-strong);
+  box-shadow: 0 4px 12px rgba(61, 42, 18, 0.16);
 }
 
 .field span:first-child,
